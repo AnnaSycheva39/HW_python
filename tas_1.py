@@ -2,17 +2,18 @@
 #Пример:
 #[1, 2, 3, 5, 1, 5, 3, 10] => [2, 10] и [1, 3, 5] и [1, 2, 5, 3, 10]
 
-list1 = [1, 2, 3, 5, 1, 5, 3, 10]
-list2 = [list1[0]]
+my_list = [1, 2, 3, 5, 1, 5, 3, 10]
 
-#list2.append(list1[0])
-for i in list1:
-    count = 0
-    for j in list2:
-        if i == j:
-            count +=1
-    if count == 0: list2.append(i)
+
+def get_unic(my_list):
+    unic = []
+    for i in range(len(my_list)):
+        if my_list[i] not in my_list[i+1::] and my_list[i] not in my_list[:i-1:]:
+            unic.append(my_list[i])
+    return unic
+
+
+print(get_unic(my_list))
+
     
-           
-print(list1)
-print(list2)
+        
